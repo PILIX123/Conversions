@@ -53,5 +53,10 @@ namespace Conversions
             txtDecimalDeBin.Text = nbDecimal.ToString();
 
         }
+
+        private void btnDecBin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
