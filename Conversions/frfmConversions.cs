@@ -65,7 +65,7 @@ namespace Conversions
                 MessageBox.Show("doit être sur 8 bits ou moins");
                 return;
             }
-            while ((i < sHexa.Length) /*&& (sHexa[i] == '0' || sHexa[i] == '1')*/)
+            while ((i < sHexa.Length))
             {
                 if (sHexa[i] <= 'F' && sHexa[i] >= '0')
                     i++;
@@ -92,5 +92,36 @@ namespace Conversions
             }
             txtDecimalDeHexa.Text = nbDecimal.ToString();
         }
-}
+
+        private void btnDecHexa_Click(object sender, EventArgs e)
+        {
+            string sDec = txtDecimalAHexa.Text;
+            string nbHexa = "";
+            if (sDec.Length > 8)
+            {
+                MessageBox.Show("doit être sur 8 bits ou moins");
+                return;
+            }
+            if (!int.TryParse(sDec, out int division))
+            {
+                MessageBox.Show("L'entrer doit etre un chifre");
+                return;
+            }
+            int reste;
+            while(division !=0)
+            {
+                reste = division % 16;
+                if (reste>=10)
+                {
+                   nbHexa = nbHexa.Insert(0, ((char)(reste-10+'A')).ToString());
+                }
+                else
+                {
+                    nbHexa = nbHexa.Insert(0, (reste).ToString());
+                }
+                division = (division - reste) / 16;
+            }
+            txtHexaDeDec.Text = nbHexa;
+        }
+    }
 }
