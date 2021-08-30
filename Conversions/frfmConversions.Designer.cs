@@ -310,6 +310,7 @@
             this.btnHexaBin.TabIndex = 35;
             this.btnHexaBin.Text = "-->";
             this.btnHexaBin.UseVisualStyleBackColor = true;
+            this.btnHexaBin.Click += new System.EventHandler(this.btnHexaBin_Click);
             // 
             // btnBinHexa
             // 

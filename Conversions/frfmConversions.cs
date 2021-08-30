@@ -123,5 +123,10 @@ namespace Conversions
             }
             txtHexaDeDec.Text = nbHexa;
         }
+
+        private void btnHexaBin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
