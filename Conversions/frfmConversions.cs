@@ -30,6 +30,7 @@ namespace Conversions
             return nbDecimal;
         }
 
+
         private void btnBinaireDecimal_Click(object sender, EventArgs e)
         {
             //lecture
@@ -51,9 +52,6 @@ namespace Conversions
                 MessageBox.Show("quand c'est binaire, c'est des 1 ou des 0");
                 return;
             }
-
-            //traitement
-            
             //affichage
             txtDecimalDeBin.Text = BinaireDecimal(sBinaire).ToString();
         }
@@ -83,6 +81,7 @@ namespace Conversions
                     return;
                 }
             }
+
             for (i = sHexa.Length - 1; i >= 0; i--)
             {
                 if (sHexa[i] <= '9' && sHexa[i] >= '0')
