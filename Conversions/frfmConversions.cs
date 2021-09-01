@@ -52,6 +52,26 @@ namespace Conversions
             return nbDecimal;
         }
 
+        private string DecHexa(int division)
+        {
+            string nbHexa = "";
+            int reste;
+            while (division != 0)
+            {
+                reste = division % 16;
+                if (reste >= 10)
+                {
+                    nbHexa = nbHexa.Insert(0, ((char)(reste - 10 + 'A')).ToString());
+                }
+                else
+                {
+                    nbHexa = nbHexa.Insert(0, (reste).ToString());
+                }
+                division = (division - reste) / 16;            
+            }
+            return nbHexa;
+        }
+
         private void btnBinaireDecimal_Click(object sender, EventArgs e)
         {
             //lecture
@@ -107,7 +127,6 @@ namespace Conversions
         private void btnDecHexa_Click(object sender, EventArgs e)
         {
             string sDec = txtDecimalAHexa.Text;
-            string nbHexa = "";
             if (sDec.Length > 8)
             {
                 MessageBox.Show("doit être sur 8 bits ou moins");
@@ -118,21 +137,8 @@ namespace Conversions
                 MessageBox.Show("L'entrer doit etre un chifre");
                 return;
             }
-            int reste;
-            while (division != 0)
-            {
-                reste = division % 16;
-                if (reste >= 10)
-                {
-                    nbHexa = nbHexa.Insert(0, ((char)(reste - 10 + 'A')).ToString());
-                }
-                else
-                {
-                    nbHexa = nbHexa.Insert(0, (reste).ToString());
-                }
-                division = (division - reste) / 16;
-            }
-            txtHexaDeDec.Text = nbHexa;
+
+            txtHexaDeDec.Text = DecHexa(division);
         }
 
         private void btnHexaBin_Click(object sender, EventArgs e)
