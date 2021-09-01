@@ -19,7 +19,7 @@ namespace Conversions
         private int BinaireDecimal(string sBinaire)
         {
             int nbDecimal = 0;
-            int i = 0;
+            int i;
             int exposant = 0;
             for (i = sBinaire.Length - 1; i >= 0; i--)
             {
