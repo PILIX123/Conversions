@@ -187,6 +187,33 @@ namespace Conversions
             }
             txtBinDeHexa.Text = DecBin(HexaDec(sHexa));
         }
+
+        private void btnBinHexa_Click(object sender, EventArgs e)
+        {
+            //lecture
+            string sBinaire = txtBinAHexa.Text;
+            int i = 0;
+
+            //validation
+            if (sBinaire.Length > 8)
+            {
+                MessageBox.Show("Doit être sur 8 bits ou moins");
+                return;
+            }
+            while ((i < sBinaire.Length) && (sBinaire[i] == '0' || sBinaire[i] == '1'))
+            {
+                i++;
+            }
+            if (i < sBinaire.Length)
+            {
+                MessageBox.Show("Quand c'est binaire, c'est des 1 ou des 0");
+                return;
+            }
+
+            //affichage
+            textBox10.Text = DecHexa(BinaireDecimal(sBinaire));
+            
+        }
     }
 }
 
