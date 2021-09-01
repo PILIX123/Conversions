@@ -34,9 +34,7 @@ namespace Conversions
         {
             //lecture
             string sBinaire = txtBinaireADec.Text;
-            int nbDecimal = 0;
             int i = 0;
-            int exposant = 0;
 
             //validation
             if (sBinaire.Length > 8)
