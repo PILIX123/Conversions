@@ -16,6 +16,19 @@ namespace Conversions
         {
             InitializeComponent();
         }
+        private int BinaireDecimal(string sBinaire)
+        {
+            int nbDecimal = 0;
+            int i = 0;
+            int exposant = 0;
+            for (i = sBinaire.Length - 1; i >= 0; i--)
+            {
+                if ((sBinaire[i] == '1'))
+                    nbDecimal += (int)Math.Pow(2, exposant);
+                exposant++;
+            }
+            return nbDecimal;
+        }
 
         private void btnBinaireDecimal_Click(object sender, EventArgs e)
         {
@@ -42,19 +55,14 @@ namespace Conversions
             }
 
             //traitement
-            for (i = sBinaire.Length - 1; i >= 0; i--)
-            {
-                if ((sBinaire[i] == '1'))
-                    nbDecimal += (int)Math.Pow(2, exposant);
-                exposant++;
-            }
-
+            
             //affichage
-            txtDecimalDeBin.Text = nbDecimal.ToString();
+            txtDecimalDeBin.Text = BinaireDecimal(sBinaire).ToString();
         }
 
         private void btnDecBin_Click(object sender, EventArgs e)
         {
+
         }
         private void btnHexaDec_Click(object sender, EventArgs e)
         {
