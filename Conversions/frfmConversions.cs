@@ -29,7 +29,28 @@ namespace Conversions
             }
             return nbDecimal;
         }
+        private int HexaDec(string sHexa)
+        {
+            int nbDecimal = 0;
+            int i;
+            int exposant = 0;
+            for (i = sHexa.Length - 1; i >= 0; i--)
+            {
+                if (sHexa[i] <= '9' && sHexa[i] >= '0')
+                {
+                    int valeur = int.Parse(sHexa[i].ToString());
+                    nbDecimal += valeur * (int)Math.Pow(16, exposant);
+                }
+                else if (sHexa[i] <= 'F' && sHexa[i] >= 'A')
+                {
+                    int valeur = (int)(sHexa[i] - 'A') + 10;
+                    nbDecimal += valeur * (int)Math.Pow(16, exposant);
+                }
+                exposant++;
 
+            }
+            return nbDecimal;
+        }
 
         private void btnBinaireDecimal_Click(object sender, EventArgs e)
         {
@@ -63,9 +84,7 @@ namespace Conversions
         private void btnHexaDec_Click(object sender, EventArgs e)
         {
             string sHexa = txtHexaADec.Text;
-            int nbDecimal = 0;
             int i = 0;
-            int exposant = 0;
             if (sHexa.Length > 8)
             {
                 MessageBox.Show("doit être sur 8 bits ou moins");
@@ -82,22 +101,7 @@ namespace Conversions
                 }
             }
 
-            for (i = sHexa.Length - 1; i >= 0; i--)
-            {
-                if (sHexa[i] <= '9' && sHexa[i] >= '0')
-                {
-                    int valeur = int.Parse(sHexa[i].ToString());
-                    nbDecimal += valeur * (int)Math.Pow(16, exposant);
-                }
-                else if (sHexa[i] <= 'F' && sHexa[i] >= 'A')
-                {
-                    int valeur = (int)(sHexa[i] - 'A') + 10;
-                    nbDecimal += valeur * (int)Math.Pow(16, exposant);
-                }
-                exposant++;
-
-            }
-            txtDecimalDeHexa.Text = nbDecimal.ToString();
+            txtDecimalDeHexa.Text = HexaDec(sHexa).ToString();
         }
 
         private void btnDecHexa_Click(object sender, EventArgs e)
