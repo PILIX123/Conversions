@@ -120,6 +120,7 @@ namespace Conversions
             }
             txtBinaireDeDec.Text = DecBin(division);
         }
+
         private void btnHexaDec_Click(object sender, EventArgs e)
         {
             string sHexa = txtHexaADec.Text;
