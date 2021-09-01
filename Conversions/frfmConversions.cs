@@ -51,6 +51,18 @@ namespace Conversions
             }
             return nbDecimal;
         }
+        private string DecBin(int division)
+        {
+            int reste;
+            string nbBin = "";
+            while (division > 0)
+            {
+                reste = division % 2;
+                division /= 2;
+                nbBin = reste.ToString() + nbBin;
+            }
+            return nbBin;
+        }
 
         private string DecHexa(int division)
         {
@@ -100,8 +112,6 @@ namespace Conversions
         private void btnDecBin_Click(object sender, EventArgs e)
         {
             string sDec = txtDecimalABin.Text;
-            string nbBin = "";
-            int reste;
             if (sDec.Length > 8)
             {
                 MessageBox.Show("Doit être sur 8 bits ou moins");
@@ -114,16 +124,7 @@ namespace Conversions
                 return;
             }
 
-            while (division > 0)
-            {
-                reste = division % 2;
-                division /= 2;
-                nbBin = reste.ToString() + nbBin;
-
-            }
-            txtBinaireDeDec.Text = nbBin;
-
-
+            txtBinaireDeDec.Text = DecBin(division);
         }
         private void btnHexaDec_Click(object sender, EventArgs e)
         {
