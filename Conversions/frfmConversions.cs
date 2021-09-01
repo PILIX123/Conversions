@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*Pierre-Luc Robitaille & Victor Saulnier
+ * Lab Conversion
+ * 01/09/2021
+ * Travail sur l<utilisation de GitHub et de conversion entre Hexa, Decimal et Binaire*/
+using System;
 using System.Windows.Forms;
 
 namespace Conversions
@@ -89,7 +86,6 @@ namespace Conversions
             //lecture
             string sBinaire = txtBinaireADec.Text;
             int i = 0;
-
             //validation
             if (sBinaire.Length > 8)
             {
@@ -117,13 +113,11 @@ namespace Conversions
                 MessageBox.Show("Doit être sur 8 bits ou moins");
                 return;
             }
-
             if (!int.TryParse(sDec, out int division))
             {
                 MessageBox.Show("L'entrer doit etre un chifre");
                 return;
             }
-
             txtBinaireDeDec.Text = DecBin(division);
         }
         private void btnHexaDec_Click(object sender, EventArgs e)
@@ -145,7 +139,6 @@ namespace Conversions
                     return;
                 }
             }
-
             txtDecimalDeHexa.Text = HexaDec(sHexa).ToString();
         }
 
@@ -162,7 +155,6 @@ namespace Conversions
                 MessageBox.Show("L'entrer doit etre un chifre");
                 return;
             }
-
             txtHexaDeDec.Text = DecHexa(division);
         }
 
@@ -193,7 +185,6 @@ namespace Conversions
             //lecture
             string sBinaire = txtBinAHexa.Text;
             int i = 0;
-
             //validation
             if (sBinaire.Length > 8)
             {
@@ -209,10 +200,8 @@ namespace Conversions
                 MessageBox.Show("Quand c'est binaire, c'est des 1 ou des 0");
                 return;
             }
-
             //affichage
-            textBox10.Text = DecHexa(BinaireDecimal(sBinaire));
-            
+            txtHexaDeBin.Text = DecHexa(BinaireDecimal(sBinaire));
         }
     }
 }

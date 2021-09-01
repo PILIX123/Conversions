@@ -30,7 +30,7 @@
         {
             this.txtBinDeHexa = new System.Windows.Forms.TextBox();
             this.txtHexaABin = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtHexaDeBin = new System.Windows.Forms.TextBox();
             this.txtBinAHexa = new System.Windows.Forms.TextBox();
             this.txtHexaDeDec = new System.Windows.Forms.TextBox();
             this.txtDecimalAHexa = new System.Windows.Forms.TextBox();
@@ -78,14 +78,14 @@
             this.txtHexaABin.Size = new System.Drawing.Size(160, 26);
             this.txtHexaABin.TabIndex = 58;
             // 
-            // textBox10
+            // txtHexaDeBin
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(437, 314);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(181, 26);
-            this.textBox10.TabIndex = 57;
+            this.txtHexaDeBin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHexaDeBin.Location = new System.Drawing.Point(437, 314);
+            this.txtHexaDeBin.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHexaDeBin.Name = "txtHexaDeBin";
+            this.txtHexaDeBin.Size = new System.Drawing.Size(181, 26);
+            this.txtHexaDeBin.TabIndex = 57;
             // 
             // txtBinAHexa
             // 
@@ -379,7 +379,7 @@
             this.ClientSize = new System.Drawing.Size(655, 450);
             this.Controls.Add(this.txtBinDeHexa);
             this.Controls.Add(this.txtHexaABin);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.txtHexaDeBin);
             this.Controls.Add(this.txtBinAHexa);
             this.Controls.Add(this.txtHexaDeDec);
             this.Controls.Add(this.txtDecimalAHexa);
@@ -418,7 +418,7 @@
 
         private System.Windows.Forms.TextBox txtBinDeHexa;
         private System.Windows.Forms.TextBox txtHexaABin;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtHexaDeBin;
         private System.Windows.Forms.TextBox txtBinAHexa;
         private System.Windows.Forms.TextBox txtHexaDeDec;
         private System.Windows.Forms.TextBox txtDecimalAHexa;
