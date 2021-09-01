@@ -66,7 +66,7 @@
             this.txtBinDeHexa.Location = new System.Drawing.Point(437, 382);
             this.txtBinDeHexa.Margin = new System.Windows.Forms.Padding(4);
             this.txtBinDeHexa.Name = "txtBinDeHexa";
-            this.txtBinDeHexa.Size = new System.Drawing.Size(159, 26);
+            this.txtBinDeHexa.Size = new System.Drawing.Size(181, 26);
             this.txtBinDeHexa.TabIndex = 59;
             // 
             // txtHexaABin
@@ -84,7 +84,7 @@
             this.textBox10.Location = new System.Drawing.Point(437, 314);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(159, 26);
+            this.textBox10.Size = new System.Drawing.Size(181, 26);
             this.textBox10.TabIndex = 57;
             // 
             // txtBinAHexa
@@ -102,7 +102,7 @@
             this.txtHexaDeDec.Location = new System.Drawing.Point(437, 247);
             this.txtHexaDeDec.Margin = new System.Windows.Forms.Padding(4);
             this.txtHexaDeDec.Name = "txtHexaDeDec";
-            this.txtHexaDeDec.Size = new System.Drawing.Size(159, 26);
+            this.txtHexaDeDec.Size = new System.Drawing.Size(181, 26);
             this.txtHexaDeDec.TabIndex = 55;
             // 
             // txtDecimalAHexa
@@ -120,7 +120,7 @@
             this.txtDecimalDeHexa.Location = new System.Drawing.Point(437, 186);
             this.txtDecimalDeHexa.Margin = new System.Windows.Forms.Padding(4);
             this.txtDecimalDeHexa.Name = "txtDecimalDeHexa";
-            this.txtDecimalDeHexa.Size = new System.Drawing.Size(159, 26);
+            this.txtDecimalDeHexa.Size = new System.Drawing.Size(181, 26);
             this.txtDecimalDeHexa.TabIndex = 53;
             // 
             // txtHexaADec
@@ -138,7 +138,7 @@
             this.txtBinaireDeDec.Location = new System.Drawing.Point(437, 114);
             this.txtBinaireDeDec.Margin = new System.Windows.Forms.Padding(4);
             this.txtBinaireDeDec.Name = "txtBinaireDeDec";
-            this.txtBinaireDeDec.Size = new System.Drawing.Size(159, 26);
+            this.txtBinaireDeDec.Size = new System.Drawing.Size(181, 26);
             this.txtBinaireDeDec.TabIndex = 51;
             // 
             // txtDecimalABin
@@ -156,7 +156,7 @@
             this.txtDecimalDeBin.Location = new System.Drawing.Point(437, 50);
             this.txtDecimalDeBin.Margin = new System.Windows.Forms.Padding(4);
             this.txtDecimalDeBin.Name = "txtDecimalDeBin";
-            this.txtDecimalDeBin.Size = new System.Drawing.Size(159, 26);
+            this.txtDecimalDeBin.Size = new System.Drawing.Size(181, 26);
             this.txtDecimalDeBin.TabIndex = 49;
             // 
             // txtBinaireADec

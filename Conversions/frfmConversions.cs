@@ -168,7 +168,24 @@ namespace Conversions
 
         private void btnHexaBin_Click(object sender, EventArgs e)
         {
-
+            string sHexa = txtHexaABin.Text;
+            int i = 0;
+            if (sHexa.Length > 4)
+            {
+                MessageBox.Show("doit être sur 4*16 bits ou moins");
+                return;
+            }
+            while ((i < sHexa.Length))
+            {
+                if (sHexa[i] <= 'F' && sHexa[i] >= '0')
+                    i++;
+                else
+                {
+                    MessageBox.Show("Doit etre entre 0 et F");
+                    return;
+                }
+            }
+            txtBinDeHexa.Text = DecBin(HexaDec(sHexa));
         }
     }
 }
