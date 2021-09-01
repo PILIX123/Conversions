@@ -51,7 +51,7 @@ namespace Conversions
 
             //affichage
             txtDecimalDeBin.Text = nbDecimal.ToString();
-
+        }
 
         private void btnDecBin_Click(object sender, EventArgs e)
         {
@@ -79,12 +79,12 @@ namespace Conversions
             }
             for (i = sHexa.Length - 1; i >= 0; i--)
             {
-                if (sHexa[i] <= '9' && sHexa[i]>='0')
+                if (sHexa[i] <= '9' && sHexa[i] >= '0')
                 {
                     int valeur = int.Parse(sHexa[i].ToString());
                     nbDecimal += valeur * (int)Math.Pow(16, exposant);
                 }
-                else if (sHexa[i] <= 'F' && sHexa[i]>='A')
+                else if (sHexa[i] <= 'F' && sHexa[i] >= 'A')
                 {
                     int valeur = (int)(sHexa[i] - 'A') + 10;
                     nbDecimal += valeur * (int)Math.Pow(16, exposant);
@@ -110,12 +110,12 @@ namespace Conversions
                 return;
             }
             int reste;
-            while(division !=0)
+            while (division != 0)
             {
                 reste = division % 16;
-                if (reste>=10)
+                if (reste >= 10)
                 {
-                   nbHexa = nbHexa.Insert(0, ((char)(reste-10+'A')).ToString());
+                    nbHexa = nbHexa.Insert(0, ((char)(reste - 10 + 'A')).ToString());
                 }
                 else
                 {
@@ -127,8 +127,9 @@ namespace Conversions
         }
 
         private void btnHexaBin_Click(object sender, EventArgs e)
-
         {
+
         }
     }
 }
+
