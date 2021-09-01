@@ -357,6 +357,7 @@
             this.btnDecBin.TabIndex = 31;
             this.btnDecBin.Text = "-->";
             this.btnDecBin.UseVisualStyleBackColor = true;
+            this.btnDecBin.Click += new System.EventHandler(this.btnDecBin_Click);
             // 
             // btnBinaireDecimal
             // 

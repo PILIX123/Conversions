@@ -52,8 +52,10 @@ namespace Conversions
             //affichage
             txtDecimalDeBin.Text = nbDecimal.ToString();
 
-        }
 
+        private void btnDecBin_Click(object sender, EventArgs e)
+        {
+        }
         private void btnHexaDec_Click(object sender, EventArgs e)
         {
             string sHexa = txtHexaADec.Text;
@@ -125,8 +127,8 @@ namespace Conversions
         }
 
         private void btnHexaBin_Click(object sender, EventArgs e)
-        {
 
+        {
         }
     }
 }
