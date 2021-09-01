@@ -99,6 +99,30 @@ namespace Conversions
 
         private void btnDecBin_Click(object sender, EventArgs e)
         {
+            string sDec = txtDecimalABin.Text;
+            string nbBin = "";
+            int reste;
+            if (sDec.Length > 8)
+            {
+                MessageBox.Show("Doit être sur 8 bits ou moins");
+                return;
+            }
+
+            if (!int.TryParse(sDec, out int division))
+            {
+                MessageBox.Show("L'entrer doit etre un chifre");
+                return;
+            }
+
+            while (division > 0)
+            {
+                reste = division % 2;
+                division /= 2;
+                nbBin = reste.ToString() + nbBin;
+
+            }
+            txtBinaireDeDec.Text = nbBin;
+
 
         }
         private void btnHexaDec_Click(object sender, EventArgs e)
