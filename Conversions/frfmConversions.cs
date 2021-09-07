@@ -4,6 +4,7 @@
  * Travail sur l<utilisation de GitHub et de conversion entre Hexa, Decimal et Binaire*/
 using System;
 using System.Windows.Forms;
+using Conversions.Classes;
 
 namespace Conversions
 {
@@ -13,196 +14,110 @@ namespace Conversions
         {
             InitializeComponent();
         }
-        private int BinaireDecimal(string sBinaire)
+        private string validBin(string sBinaire)
         {
-            int nbDecimal = 0;
-            int i;
-            int exposant = 0;
-            for (i = sBinaire.Length - 1; i >= 0; i--)
+            if(sBinaire.Length > 8)
+                return "L'entré doit être sur 8 bits ou moins";
+            for(int i = 0; i < sBinaire.Length; i++)
             {
-                if ((sBinaire[i] == '1'))
-                    nbDecimal += (int)Math.Pow(2, exposant);
-                exposant++;
+                if (sBinaire[i] != '0' && sBinaire[i]!= '1')
+                    return "Lorsque c'est binaire c'est des 1 ou des 0";
             }
-            return nbDecimal;
+            return sBinaire;
         }
-        private int HexaDec(string sHexa)
+        private int validDec(string sDec)
         {
-            int nbDecimal = 0;
-            int i;
-            int exposant = 0;
-            for (i = sHexa.Length - 1; i >= 0; i--)
-            {
-                if (sHexa[i] <= '9' && sHexa[i] >= '0')
-                {
-                    int valeur = int.Parse(sHexa[i].ToString());
-                    nbDecimal += valeur * (int)Math.Pow(16, exposant);
-                }
-                else if (sHexa[i] <= 'F' && sHexa[i] >= 'A')
-                {
-                    int valeur = (int)(sHexa[i] - 'A') + 10;
-                    nbDecimal += valeur * (int)Math.Pow(16, exposant);
-                }
-                exposant++;
-
-            }
-            return nbDecimal;
+            if(!int.TryParse(sDec, out int division))
+                return -1;
+            else if(division<0 || division > 255)
+                return -1;
+            else
+                return division;
         }
-        private string DecBin(int division)
+        private string validHex(string sHexa)
         {
-            int reste;
-            string nbBin = "";
-            while (division > 0)
+            int i =0;
+            if (sHexa.Length > 2 || sHexa.Length < 1)
+                return "L'entrée doit être entre 1 et 2 charactère";
+            while ((i < sHexa.Length))
             {
-                reste = division % 2;
-                division /= 2;
-                nbBin = reste.ToString() + nbBin;
-            }
-            return nbBin;
-        }
-
-        private string DecHexa(int division)
-        {
-            string nbHexa = "";
-            int reste;
-            while (division != 0)
-            {
-                reste = division % 16;
-                if (reste >= 10)
-                {
-                    nbHexa = nbHexa.Insert(0, ((char)(reste - 10 + 'A')).ToString());
-                }
+                if (sHexa[i] <= 'F' && sHexa[i] >= '0')
+                    i++;
                 else
-                {
-                    nbHexa = nbHexa.Insert(0, (reste).ToString());
-                }
-                division = (division - reste) / 16;            
+                    return "Les charactère doivent être entre 0 et F";
             }
-            return nbHexa;
-        }
+            return sHexa;
 
+        }
         private void btnBinaireDecimal_Click(object sender, EventArgs e)
         {
             //lecture
             string sBinaire = txtBinaireADec.Text;
-            int i = 0;
             //validation
-            if (sBinaire.Length > 8)
+            if (validBin(sBinaire) != sBinaire)
             {
-                MessageBox.Show("doit être sur 8 bits ou moins");
-                return;
-            }
-            while ((i < sBinaire.Length) && (sBinaire[i] == '0' || sBinaire[i] == '1'))
-            {
-                i++;
-            }
-            if (i < sBinaire.Length)
-            {
-                MessageBox.Show("quand c'est binaire, c'est des 1 ou des 0");
+                MessageBox.Show(validBin(sBinaire));
                 return;
             }
             //affichage
-            txtDecimalDeBin.Text = BinaireDecimal(sBinaire).ToString();
+            txtDecimalDeBin.Text = Cbase.BinaireDecimal(sBinaire).ToString();
         }
 
         private void btnDecBin_Click(object sender, EventArgs e)
         {
             string sDec = txtDecimalABin.Text;
-            if (sDec.Length > 8)
+            if(validDec(sDec) == -1)
             {
-                MessageBox.Show("Doit être sur 8 bits ou moins");
+                MessageBox.Show("L'entrée doit être un entier entre 0 et 255");
                 return;
             }
-            if (!int.TryParse(sDec, out int division))
-            {
-                MessageBox.Show("L'entrer doit etre un chifre");
-                return;
-            }
-            txtBinaireDeDec.Text = DecBin(division);
+            txtBinaireDeDec.Text = Cbase.DecBin(validDec(sDec));
         }
 
         private void btnHexaDec_Click(object sender, EventArgs e)
         {
             string sHexa = txtHexaADec.Text;
-            int i = 0;
-            if (sHexa.Length > 8)
+            if(validHex(sHexa) != sHexa)
             {
-                MessageBox.Show("doit être sur 8 bits ou moins");
+                MessageBox.Show(validHex(sHexa));
                 return;
             }
-            while ((i < sHexa.Length))
-            {
-                if (sHexa[i] <= 'F' && sHexa[i] >= '0')
-                    i++;
-                else
-                {
-                    MessageBox.Show("Doit etre entre 0 et F");
-                    return;
-                }
-            }
-            txtDecimalDeHexa.Text = HexaDec(sHexa).ToString();
+            txtDecimalDeHexa.Text = Cbase.HexaDec(sHexa).ToString();
         }
 
         private void btnDecHexa_Click(object sender, EventArgs e)
         {
             string sDec = txtDecimalAHexa.Text;
-            if (sDec.Length > 8)
+            if (validDec(sDec) == -1)
             {
-                MessageBox.Show("doit être sur 8 bits ou moins");
+                MessageBox.Show("L'entrée doit être un chiffre entre 0 et 255");
                 return;
             }
-            if (!int.TryParse(sDec, out int division))
-            {
-                MessageBox.Show("L'entrer doit etre un chifre");
-                return;
-            }
-            txtHexaDeDec.Text = DecHexa(division);
+            txtHexaDeDec.Text = Cbase.DecHexa(validDec(sDec));
         }
 
         private void btnHexaBin_Click(object sender, EventArgs e)
         {
             string sHexa = txtHexaABin.Text;
-            int i = 0;
-            if (sHexa.Length > 4)
+            if (validHex(sHexa) != sHexa)
             {
-                MessageBox.Show("doit être sur 4*16 bits ou moins");
+                MessageBox.Show(validHex(sHexa));
                 return;
             }
-            while ((i < sHexa.Length))
-            {
-                if (sHexa[i] <= 'F' && sHexa[i] >= '0')
-                    i++;
-                else
-                {
-                    MessageBox.Show("Doit etre entre 0 et F");
-                    return;
-                }
-            }
-            txtBinDeHexa.Text = DecBin(HexaDec(sHexa));
+            txtBinDeHexa.Text = Cbase.DecBin(Cbase.HexaDec(sHexa));
         }
 
         private void btnBinHexa_Click(object sender, EventArgs e)
         {
             //lecture
             string sBinaire = txtBinAHexa.Text;
-            int i = 0;
-            //validation
-            if (sBinaire.Length > 8)
+            if(validBin(sBinaire) != sBinaire)
             {
-                MessageBox.Show("Doit être sur 8 bits ou moins");
-                return;
-            }
-            while ((i < sBinaire.Length) && (sBinaire[i] == '0' || sBinaire[i] == '1'))
-            {
-                i++;
-            }
-            if (i < sBinaire.Length)
-            {
-                MessageBox.Show("Quand c'est binaire, c'est des 1 ou des 0");
+                MessageBox.Show(validBin(sBinaire));
                 return;
             }
             //affichage
-            txtHexaDeBin.Text = DecHexa(BinaireDecimal(sBinaire));
+            txtHexaDeBin.Text = Cbase.DecHexa(Cbase.BinaireDecimal(sBinaire));
         }
     }
 }
