@@ -11,9 +11,7 @@ namespace Conversions
     public partial class frfmConversions : Form
     {
         public frfmConversions()
-        {
-            InitializeComponent();
-        }
+        { InitializeComponent(); }
         private string validBin(string sBinaire)
         {
             if(sBinaire.Length > 8)
