@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Conversions.Classes
 {
@@ -39,10 +35,8 @@ namespace Conversions.Classes
                     nbDecimal += valeur * (int)Math.Pow(16, exposant);
                 }
                 exposant++;
-
             }
             return nbDecimal;
-
         }
         public static string DecBin(int division)
         {
@@ -55,7 +49,6 @@ namespace Conversions.Classes
                 nbBin = reste.ToString() + nbBin;
             }
             return nbBin;
-
         }
         public static string DecHexa(int division)
         {
@@ -65,17 +58,12 @@ namespace Conversions.Classes
             {
                 reste = division % 16;
                 if (reste >= 10)
-                {
                     nbHexa = nbHexa.Insert(0, ((char)(reste - 10 + 'A')).ToString());
-                }
                 else
-                {
                     nbHexa = nbHexa.Insert(0, (reste).ToString());
-                }
                 division = (division - reste) / 16;
             }
             return nbHexa;
-
         }
     }
 }
