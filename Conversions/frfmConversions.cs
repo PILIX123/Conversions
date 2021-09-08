@@ -14,7 +14,7 @@ namespace Conversions
         { InitializeComponent(); }
         private string validBin(string sBinaire)
         {
-            if(sBinaire.Length > 8)
+            if(sBinaire.Length > 8 || sBinaire.Length < 1)
                 return "L'entré doit être sur 8 bits ou moins";
             for(int i = 0; i < sBinaire.Length; i++)
                 if (sBinaire[i] != '0' && sBinaire[i]!= '1')
