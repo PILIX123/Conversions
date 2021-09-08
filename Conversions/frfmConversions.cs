@@ -35,7 +35,7 @@ namespace Conversions
             if (sHexa.Length > 2 || sHexa.Length < 1)
                 return "L'entrée doit être entre 1 et 2 charactère";
             for(int i = 0; i < sHexa.Length; i++)
-                if(sHexa[i] > 'F' || sHexa[i]<'0')
+                if(sHexa[i] > 'F' || sHexa[i] < '0')
                     return "Les charactère doivent être entre 0 et F";
             return sHexa;
         }
